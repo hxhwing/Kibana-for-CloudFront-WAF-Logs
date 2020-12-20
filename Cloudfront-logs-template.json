@@ -1,0 +1,38 @@
+## GET _index_template/template1
+
+{
+  "index_templates" : [
+    {
+      "name" : "template1",
+      "index_template" : {
+        "index_patterns" : [
+          "cloudfront-logs-*"
+        ],
+        "template" : {
+          "mappings" : {
+            "properties" : {
+              "geoip" : {
+                "dynamic" : true,
+                "properties" : {
+                  "ip" : {
+                    "type" : "ip"
+                  },
+                  "latitude" : {
+                    "type" : "float"
+                  },
+                  "location" : {
+                    "type" : "geo_point"
+                  },
+                  "longitude" : {
+                    "type" : "float"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "composed_of" : [ ]
+      }
+    }
+  ]
+}

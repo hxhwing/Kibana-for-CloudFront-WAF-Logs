@@ -1,0 +1,33 @@
+## GET /_template/waf
+
+{
+  "waf" : {
+    "order" : 0,
+    "index_patterns" : [
+      "awswaf-*"
+    ],
+    "settings" : { },
+    "mappings" : {
+      "properties" : {
+        "geoip" : {
+          "dynamic" : true,
+          "properties" : {
+            "ip" : {
+              "type" : "ip"
+            },
+            "latitude" : {
+              "type" : "half_float"
+            },
+            "location" : {
+              "type" : "geo_point"
+            },
+            "longitude" : {
+              "type" : "half_float"
+            }
+          }
+        }
+      }
+    },
+    "aliases" : { }
+  }
+}
